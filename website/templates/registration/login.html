@@ -1,0 +1,17 @@
+
+<form method="post" action="{% url 'login_user' %}">
+  {% csrf_token %}
+
+  <div class="modal-body">
+
+    <input type="text" name="username" id="username" placeholder="User Name" class="form-control"><br>
+    <input type="password" name="password" id="password" placeholder="Password" class="form-control">
+    
+  </div>
+
+  <div class="modal-footer">
+    <button type="submit" class="submit-btn btn btn-primary">Sign in</button>
+    
+  </div>
+
+</form>
