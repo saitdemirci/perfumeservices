@@ -603,6 +603,7 @@ ol {
 
 .features-ads .single-features-ads img {
 	margin-bottom: 15px;
+	max-width: 33%;
 }
 
 .features-ads .single-features-ads h4 {
@@ -637,7 +638,9 @@ ol {
 	background-color: rgba(0, 0, 0, 0.4);
 }
 
-
+/* .lookbok-section{
+	background-color:#B0BCC2;
+} */
 .features-box .single-box-item.first-box .box-text .trend-alert {
 	color: rgba(255, 255, 255, 0.4);
 	display: block;

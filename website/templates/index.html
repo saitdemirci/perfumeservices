@@ -83,8 +83,8 @@
                 <nav class="main-menu mobile-menu">
                     <ul>
                         <li><a class="active" href="{% url 'home' %}">{% trans 'Home' %}</a></li>
-                        <li><a href="{% url 'about' %}">{% trans 'About' %}</a></li>
-                        <li><a href="#latest-products">{% trans 'Products' %}</a></li>
+                        <li><a href="#about">{% trans 'About' %}</a></li>
+                        <li><a href="#products-services">{% trans 'Product & Services' %}</a></li>
                         {% if user.is_authenticated %}
                         <li><a href="{% url 'contact' %}">{% trans '' %}Contact</a></li>
                         {% endif %}
@@ -143,39 +143,11 @@
                         <div class="col-lg-12">
                             <h1>2023</h1>
                             <h2>{% trans 'Newest Fragrances.' %}</h2>
-                            <a href="#" class="primary-btn">{% trans 'Order Now' %}</a>
-                           
-
-
+                            <a href="{% url 'about' %}" class="primary-btn">{% trans 'Get a Free Test Now' %}</a>
+                        
                         </div>
                     </div>
-                </div>
-            
-            
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                Launch demo modal
-              </button>
-              
-              <!-- Modal -->
-              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      ...
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                </div>           
         </div>
     </div>
     </section>
@@ -187,210 +159,95 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4">
-                        <div class="single-features-ads first">
-                            <img src="{% static 'img/icons/f-delivery.png' %}" alt="">
-                            <h4>Free shipping</h4>
-                            <p>Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal
-                                esuada aliquet libero viverra cursus. </p>
+                        <div class="single-features-ads ">
+                            <img src="{% static 'img2/products/41.jpg' %}" alt="">
+                            <h4>Device 1</h4>
+                            <p>some information about the device </p>
+
                         </div>
                     </div>
                     <div class="col-lg-4">
-                        <div class="single-features-ads second">
-                            <img src="{% static 'img/icons/coin.png' %}" alt="">
-                            <h4>100% Money back </h4>
-                            <p>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
-                                aliquet libero viverra cursus. </p>
+                        <div class="single-features-ads ">
+                            <img src="{% static 'img2/1.png' %}" alt="">
+                            <h4>Device 2</h4>
+                            <p>some information about the device </p>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="single-features-ads">
-                            <img src="{% static 'img/icons/chat.png' %}" alt="">
-                            <h4>Online support 24/7</h4>
-                            <p>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
-                                aliquet libero viverra cursus. </p>
+                            <img src="{% static 'img2/products/5.jpeg' %}" alt="">
+                            <h4>Device 3</h4>
+                            <p>some information about the device </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Features Box -->
-        <div class="features-box">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="single-box-item first-box">
-                                    <img src="{% static 'img2/Natural-Ways-to-Use-Rose-Essential-Oil-for-Skin-Hair-Health_623971295.jpg' %}" alt="">
-                                    <div class="box-text">
-                                        <span class="trend-year">2023 Hotels</span>
-                                        <h2>Jewelry</h2>
-                                        <span class="trend-alert">Trend Allert</span>
-                                        <a href="#" class="primary-btn">See More</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="single-box-item second-box">
-                                    <img src="{% static 'img2/oud-fragrance-oil.jpg' %}" alt="">
-                                    <div class="box-text">
-                                        <span class="trend-year">2023 Trend</span>
-                                        <h2>Oud</h2>
-                                        <span class="trend-alert">Bold & Black</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="single-box-item large-box">
-                            <img src="{% static 'img2/scent1.jpeg' %}" alt="">
-                            <div class="box-text">
-                                <span class="trend-year">2023 Spa</span>
-                                <h2>Collection</h2>
-                                <div class="trend-alert">Trend Allert</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+ 
     </section>
     <!-- Features Section End -->
-
-    <!-- Latest Product Begin -->
-    <section class="latest-products spad" id="latest-products">
-        <div class="container">
-            <div class="product-filter">
-                <div class="row">
-                    <div class="col-lg-12 text-center">
+    <section class="lookbok-section" id="about">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="lookbok-left">
                         <div class="section-title">
-                            <h2>Latest Products</h2>
+                            <h2>{% trans 'About' %} <br />{% trans '#Us' %}</h2>
                         </div>
-                        <ul class="product-controls">
-                            <li data-filter="*">All</li>
-                            <li data-filter=".Essence">Essence</li>
-                            <li data-filter=".Devices">Devices</li>
-                            <li data-filter=".Pakage">Pakage</li>
-                            <li data-filter=".accesories">Accesories</li>
-                        </ul>
-                    </div>
+                        <p>{% trans 'We are a unique provider of perfume solutions, offering full solutions in all channels with a high level of customer satisfaction using the updated technology units.' %}</p>   
+                       </div>
                 </div>
-            </div>
-            <div class="row" id="product-list">
-                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/0.jpg' %}" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>New Essence</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/1.png' %}" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6> Maxi Device</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all Pakage accesories">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/3.jpg' %}" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>One piece Essence</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all Pakage accesories">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/4.jpg' %}" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>paket of 3 </h6>
-                            <p>$35.50</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all Essence Pakage">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/5.jpeg' %}" alt=""></a>
-                            <div class="p-status">new</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Quality Device</h6>
-                            <p>$22.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all accesories Devices">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/6.jpg' %}" alt=""></a>
-                            <div class="p-status sale">sale</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Relaxations Essence</h6>
-                            <p>$25.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/41.jpg' %}" alt=""></a>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Stand-alone device</h6>
-                            <p>$19.90</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 mix all accesories Devices">
-                    <div class="single-product-item">
-                        <figure>
-                            <a href="#"><img src="{% static 'img2/products/10.jpg' %}" alt=""></a>
-                            <div class="p-status popular">popular</div>
-                        </figure>
-                        <div class="product-text">
-                            <h6>Nature fragrance</h6>
-                            <p>$35.50</p>
-                        </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="lookbok-pic">
+                        <img src="{% static 'img2/aboutus-removebg-preview.png' %}" alt="">
+                        <div class="pic-text"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Latest Product End -->
-
-    <!-- Lookbok Section Begin -->
+    <br><br>
     <section class="lookbok-section">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 offset-lg-1">
                     <div class="lookbok-left">
                         <div class="section-title">
-                            <h2>{% trans '' %}Products <br />& {% trans '' %}Services</h2>
+                            <h2>{% trans 'PERFUME SERVICES' %} <br />{% trans 'TECHNOLOGY' %}</h2>
+                        </div>
+                        <p>{% trans 'Our equipment is unique with a high level of customer satisfaction, reliable,adjustable, easy to maintain, and updated safety standards.' %}
+                            
+                            
+                            </p>                        
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="lookbok-pic">
+                        <img src="{% static 'img2/1-removebg-preview.png' %}" alt="" style="height: 50%; width: 50%;">
+                        <div class="pic-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <br><br>
+  
+
+    <!-- Lookbok Section Begin -->
+    <section class="lookbok-section" id="products-services">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="lookbok-left">
+                        <div class="section-title">
+                            <h2>{% trans 'Products' %} <br />& {% trans 'Services' %}</h2>
                         </div>
                         <p>{% trans 'Scent development All our aromas are created under the highest quality standards and meet IFRA (International Fragrance Association), which is the official representative body of the fragrance industry worldwide' %}</p>
 
                             
-                        <a href="{% url 'about' %}" class="primary-btn look-btn">{% trans 'See More' %}</a>
+                        
                     </div>
                 </div>
                 <div class="col-lg-5 offset-lg-1">
