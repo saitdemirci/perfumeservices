@@ -1,0 +1,473 @@
+{% load i18n %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="perfume Services Template">
+    <meta name="keywords" content="perfume, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PERFUME SERVICES</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900&display=swap"
+        rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader">
+        </div>
+    </div>
+    
+    <!-- Search model -->
+	<div class="search-model">
+		<div class="h-100 d-flex align-items-center justify-content-center">
+			<div class="search-close-switch">+</div>
+			<form class="search-model-form">
+				<input type="text" id="search-input" placeholder="Search here.....">
+			</form>
+		</div>
+	</div>
+	<!-- Search model end -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="inner-header">
+                <div class="logo">
+                    <a href="{% url 'home' %}"><img src="{% static 'img2/small-logo.png' %}" alt=""></a>
+                    <span>Perfume Services</span>
+                </div>
+                <!-- <div class="header-right">
+                    <img src="img/icons/search.png" alt="" class="search-trigger">
+                    <img src="img/icons/man.png" alt="">
+                    <a href="#">
+                        <img src="img/icons/bag.png" alt="">
+                        <span>2</span>
+                    </a>
+                </div> -->
+                <div class="user-access">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'logout' %}">{% trans 'Log out' %}</a>
+                    {% else %}
+                    <a href="#modalsignup" class="signup-btn" data-toggle="modal" >{% trans 'Sign in' %}</a>
+                    <div class="modal" tabindex="-1" id="modalsignup">
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title"></h5>
+                            </div>
+                            <div class="modal-body">
+                              {% include 'registration/login.html' %}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {% endif %}
+                </div>
+                <nav class="main-menu mobile-menu">
+                    <ul>
+                        <li><a class="active" href="{% url 'home' %}">{% trans 'Home' %}</a></li>
+                        <li><a href="{% url 'about' %}">{% trans 'About' %}</a></li>
+                        <li><a href="#latest-products">{% trans 'Products' %}</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'contact' %}">{% trans '' %}Contact</a></li>
+                        {% endif %}
+                        <li>
+                        <form action="{% url 'set_language' %}" method="post">{%csrf_token%}
+                            <select name="language" onchange="this.form.submit()" class="language" style="border: none;">
+                              {% get_current_language as LANGUAGE_CODE %}
+                              {% get_available_languages as LANGUAGES %}
+                              {% get_language_info_list for LANGUAGES as languages %}
+                              {% for language in languages %}
+                              <option value="{{language.code}}" {% if language.code == LANGUAGE_CODE %} selected {% endif %} >
+                                {{language.name_local}}
+                              </option>
+                              {%endfor%}
+                            </select>
+                          </form>
+                        </li>
+      
+                                
+                                    
+                                    
+                            
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <!-- Header Info Begin -->
+    <div class="header-info">
+        <div class="container-fluid">
+            <div class="row">
+                
+            </div>
+        </div>
+    </div>
+    <!-- Header Info End -->
+    <!-- Header End -->
+
+    {% block content %}
+
+    {% for message in messages %}
+    {% if message.tags == 'info' %}
+    {% elif message.tags == 'error' %}
+
+    {% endif %}
+
+
+    {% endfor %}
+    <!-- Hero Slider Begin -->
+    <section class="hero-slider">
+        <div class="hero-items owl-carousel">
+            <div class="single-slider-item set-bg" data-setbg="{% static 'img2/essential-oils1.jpg' %}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1>2023</h1>
+                            <h2>{% trans 'Newest Fragrances.' %}</h2>
+                            <a href="#" class="primary-btn">{% trans 'Order Now' %}</a>
+                           
+
+
+                        </div>
+                    </div>
+                </div>
+            
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Launch demo modal
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      ...
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    </section>
+    <!-- Hero Slider End -->
+
+    <!-- Features Section Begin -->
+    <section class="features-section spad">
+        <div class="features-ads">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="single-features-ads first">
+                            <img src="{% static 'img/icons/f-delivery.png' %}" alt="">
+                            <h4>Free shipping</h4>
+                            <p>Fusce urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal
+                                esuada aliquet libero viverra cursus. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads second">
+                            <img src="{% static 'img/icons/coin.png' %}" alt="">
+                            <h4>100% Money back </h4>
+                            <p>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
+                                aliquet libero viverra cursus. </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="single-features-ads">
+                            <img src="{% static 'img/icons/chat.png' %}" alt="">
+                            <h4>Online support 24/7</h4>
+                            <p>Urna quam, euismod sit amet mollis quis, vestibulum quis velit. Vesti bulum mal esuada
+                                aliquet libero viverra cursus. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Features Box -->
+        <div class="features-box">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="single-box-item first-box">
+                                    <img src="{% static 'img2/Natural-Ways-to-Use-Rose-Essential-Oil-for-Skin-Hair-Health_623971295.jpg' %}" alt="">
+                                    <div class="box-text">
+                                        <span class="trend-year">2023 Hotels</span>
+                                        <h2>Jewelry</h2>
+                                        <span class="trend-alert">Trend Allert</span>
+                                        <a href="#" class="primary-btn">See More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="single-box-item second-box">
+                                    <img src="{% static 'img2/oud-fragrance-oil.jpg' %}" alt="">
+                                    <div class="box-text">
+                                        <span class="trend-year">2023 Trend</span>
+                                        <h2>Oud</h2>
+                                        <span class="trend-alert">Bold & Black</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="single-box-item large-box">
+                            <img src="{% static 'img2/scent1.jpeg' %}" alt="">
+                            <div class="box-text">
+                                <span class="trend-year">2023 Spa</span>
+                                <h2>Collection</h2>
+                                <div class="trend-alert">Trend Allert</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section End -->
+
+    <!-- Latest Product Begin -->
+    <section class="latest-products spad" id="latest-products">
+        <div class="container">
+            <div class="product-filter">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-title">
+                            <h2>Latest Products</h2>
+                        </div>
+                        <ul class="product-controls">
+                            <li data-filter="*">All</li>
+                            <li data-filter=".Essence">Essence</li>
+                            <li data-filter=".Devices">Devices</li>
+                            <li data-filter=".Pakage">Pakage</li>
+                            <li data-filter=".accesories">Accesories</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="product-list">
+                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/0.jpg' %}" alt=""></a>
+                            <div class="p-status">new</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>New Essence</h6>
+                            <p>$22.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/1.png' %}" alt=""></a>
+                            <div class="p-status sale">sale</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6> Maxi Device</h6>
+                            <p>$25.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all Pakage accesories">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/3.jpg' %}" alt=""></a>
+                            <div class="p-status">new</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>One piece Essence</h6>
+                            <p>$19.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all Pakage accesories">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/4.jpg' %}" alt=""></a>
+                            <div class="p-status popular">popular</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>paket of 3 </h6>
+                            <p>$35.50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all Essence Pakage">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/5.jpeg' %}" alt=""></a>
+                            <div class="p-status">new</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Quality Device</h6>
+                            <p>$22.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all accesories Devices">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/6.jpg' %}" alt=""></a>
+                            <div class="p-status sale">sale</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Relaxations Essence</h6>
+                            <p>$25.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all Essence Devices">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/41.jpg' %}" alt=""></a>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Stand-alone device</h6>
+                            <p>$19.90</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 mix all accesories Devices">
+                    <div class="single-product-item">
+                        <figure>
+                            <a href="#"><img src="{% static 'img2/products/10.jpg' %}" alt=""></a>
+                            <div class="p-status popular">popular</div>
+                        </figure>
+                        <div class="product-text">
+                            <h6>Nature fragrance</h6>
+                            <p>$35.50</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Latest Product End -->
+
+    <!-- Lookbok Section Begin -->
+    <section class="lookbok-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-4 offset-lg-1">
+                    <div class="lookbok-left">
+                        <div class="section-title">
+                            <h2>{% trans '' %}Products <br />& {% trans '' %}Services</h2>
+                        </div>
+                        <p>{% trans 'Scent development All our aromas are created under the highest quality standards and meet IFRA (International Fragrance Association), which is the official representative body of the fragrance industry worldwide' %}</p>
+
+                            
+                        <a href="{% url 'about' %}" class="primary-btn look-btn">{% trans 'See More' %}</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <div class="lookbok-pic">
+                        <img src="{% static 'img2/5-removebg-preview.png' %}" alt="">
+                        <div class="pic-text"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <!-- Lookbok Section End -->
+    {% endblock %}
+    <!-- Logo Section Begin -->
+    <div class="logo-section spad">
+        <div class="logo-items owl-carousel">
+            <div class="logo-item">
+                <img src="img/logos/logo-1.png" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="img/logos/logo-2.png" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="img/logos/logo-3.png" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="img/logos/logo-4.png" alt="">
+            </div>
+            <div class="logo-item">
+                <img src="img/logos/logo-5.png" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Logo Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="social-links-warp">
+			<div class="container">
+				<div class="social-links">
+					<a href="" class="instagram"><i class="fa fa-instagram"></i><span>instagram</span></a>
+					<a href="" class="pinterest"><i class="fa fa-pinterest"></i><span>pinterest</span></a>
+					<a href="" class="facebook"><i class="fa fa-facebook"></i><span>facebook</span></a>
+					<a href="" class="twitter"><i class="fa fa-twitter"></i><span>twitter</span></a>
+					<a href="" class="youtube"><i class="fa fa-youtube"></i><span>youtube</span></a>
+					<a href="" class="tumblr"><i class="fa fa-tumblr-square"></i><span>tumblr</span></a>
+				</div>
+			</div>
+
+<div class="container text-center pt-5">
+                <p>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made by <a href="#" target="_blank">MOR GROUP</a>
+  </p>
+            </div>
+
+
+		</div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+    <script src="{% static 'js/mixitup.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        $('#myModal').on('shown.bs.modal', function () {
+            $('#myInput').trigger('focus')
+            })
+    </script>
+</body>
+
+</html>
+
